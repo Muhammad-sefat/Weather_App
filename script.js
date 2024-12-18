@@ -19,38 +19,38 @@ const getCountryName = (code) => {
 };
 
 // // to get the date and time
-// const getDateTime = (dt) => {
-//   const curDate = new Date(dt * 1000); // Convert seconds to milliseconds
-//   console.log(curDate);
-//   // // const date = new Date();
-//   const options = {
-//     weekday: "long",
-//     year: "numeric",
-//     month: "long",
-//     day: "numeric",
-//     hour: "numeric",
-//     minute: "numeric",
-//   };
+const getDateTime = (dt) => {
+  const curDate = new Date(dt * 1000); // Convert seconds to milliseconds
+  console.log(curDate);
+  // // const date = new Date();
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  };
 
-//   const formatter = new Intl.DateTimeFormat("en-US", options);
-//   console.log(formatter);
-//   return formatter.format(curDate);
-// };
+  const formatter = new Intl.DateTimeFormat("en-US", options);
+  console.log(formatter);
+  return formatter.format(curDate);
+};
 
-// let city = "Dhaka";
+let city = "Dhaka";
 
-// // search functionality
-// citySearch.addEventListener("submit", (e) => {
-//   e.preventDefault();
+// search functionality
+citySearch.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-//   let cityName = document.querySelector(".city_name");
-//   console.log(cityName.value);
-//   city = cityName.value;
+  let cityName = document.querySelector(".city_name");
+  console.log(cityName.value);
+  city = cityName.value;
 
-//   getWeatherData();
+  getWeatherData();
 
-//   cityName.value = "";
-// });
+  cityName.value = "";
+});
 
 const getWeatherData = async () => {
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=d3ba1bc1b727ac36376bdb50bbc19249`;
@@ -68,7 +68,7 @@ const getWeatherData = async () => {
 
     w_temperature.innerHTML = `${main.temp}&#176`;
     w_minTem.innerHTML = `Min: ${main.temp_min.toFixed()}&#176`;
-    w_maxTem.innerHTML = `Min: ${main.temp_max.toFixed()}&#176`;
+    w_maxTem.innerHTML = `Mix: ${main.temp_max.toFixed()}&#176`;
 
     w_feelsLike.innerHTML = `${main.feels_like.toFixed(2)}&#176`;
     w_humidity.innerHTML = `${main.humidity}%`;
